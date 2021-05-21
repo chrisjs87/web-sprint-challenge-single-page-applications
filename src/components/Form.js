@@ -1,7 +1,12 @@
 import React from 'react'
 
 export default function Form(props) {
-	const { values, disabled, change } = props
+	const { values, disabled, change, submit } = props
+
+	const onSubmit = evt => {
+		evt.preventDefault()
+		submit()
+	}
 
 	const onChange = evt => {
     const { name, value, checked, type } = evt.target
@@ -12,7 +17,7 @@ export default function Form(props) {
 	return (
 		<div>
 			<h1>Pizza Form Page</h1>
-			<form id='pizza-form'>
+			<form id='pizza-form' onSubmit={onSubmit}>
 				{/* add some error divs! */}
 
 			<div className='formInputs'>
@@ -22,6 +27,7 @@ export default function Form(props) {
 						value={values.name}
 						onChange={onChange}
 						type='text'
+						name='name'
 					/>
 				</label>
 				<label>Pizza Size:
@@ -82,9 +88,9 @@ export default function Form(props) {
 						value={values.special}
 						onChange={onChange}
 						type='text'
+						name='special'
 					/>
 				</label>
-				
 			</div>
 
 

@@ -15,10 +15,14 @@ const initialFormValues = {
 
 const initialDisabled = true
 
+
+
 const App = () => {
 
 const [formValues, setFormValues] = useState(initialFormValues)
 const [disabled, setDisabled] = useState(initialDisabled)
+
+
 
 const inputChange = (name, value) => {
 	//validation function
@@ -26,6 +30,19 @@ const inputChange = (name, value) => {
 		...formValues,
 		[name]: value
 	})
+}
+
+const formSubmit = () => {
+	const newOrder = {
+		name: formValues.name.trim(),
+		size: formValues.size,
+    topping1: formValues.topping1,
+    topping2: formValues.topping2,
+		topping3: formValues.topping3,
+    topping4: formValues.topping4,
+		special: formValues.special.trim()
+	}
+	console.log(newOrder);
 }
 
   return (
@@ -44,6 +61,7 @@ const inputChange = (name, value) => {
 						values={formValues}
 						disabled={disabled}
 						change={inputChange}
+						submit={formSubmit}
 					/>
 				</Route>
 
