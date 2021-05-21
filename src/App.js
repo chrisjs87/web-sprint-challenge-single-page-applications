@@ -1,6 +1,7 @@
 import React from "react";
 import { Route, Link, Switch } from 'react-router-dom'
 import Home from './components/Home'
+import Form from './components/Form'
 
 const App = () => {
   return (
@@ -9,13 +10,13 @@ const App = () => {
 				<h1 className='header'>Lambda Eats</h1>
 				<div className='nav-links'>
 					<Link to='/'>Home</Link>
-					<Link to='/items-list'>Order</Link>
+					<Link to='/pizza'>Order</Link>
 				</div>
 			</nav>
 
 			<Switch>
-				<Route>
-					
+				<Route path='/pizza'>
+					<Form></Form>
 				</Route>
 
 				<Route path='/' component={Home} />
