@@ -4,10 +4,11 @@ import Home from './components/Home'
 import Form from './components/Form'
 import * as yup from 'yup'
 import schema from './validation/formSchema'
+import axios from 'axios'
 
 const initialFormValues = {
 	name: '',
-	size: '',
+	size: 'small',
   topping1: false,
   topping2: false,
 	topping3: false,
@@ -26,6 +27,16 @@ const App = () => {
 	const [formValues, setFormValues] = useState(initialFormValues)
 	const [disabled, setDisabled] = useState(initialDisabled)
 	const [formErrors, setFormErrors] = useState(initialFormErrors)
+
+	const postNewOrder = newOrder => {
+    axios.post('https://reqres.in/api/orders', newOrder)
+      .then(res => {
+      })
+      .catch(err => {
+        console.log(err)
+      })
+      .finally(setFormValues(initialFormValues))
+  }
 
 	const validate = (name, value) => {
 		yup.reach(schema, name)
@@ -52,7 +63,7 @@ const App = () => {
 			topping4: formValues.topping4,
 			special: formValues.special.trim()
 		}
-		console.log(newOrder);
+		postNewOrder(newOrder)
 	}
 
 	useEffect(() => {

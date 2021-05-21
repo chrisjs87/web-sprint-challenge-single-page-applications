@@ -38,7 +38,6 @@ export default function Form(props) {
             value={values.size}
             name='size'
 					>
-						<option value=''>-- Select A Size --</option>
 						<option value='small'>Small</option>
 						<option value='medium'>Medium</option>
 						<option value='large'>Large</option>
