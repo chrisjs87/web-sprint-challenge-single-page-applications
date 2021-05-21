@@ -1,7 +1,7 @@
 import React from 'react'
 
 export default function Form(props) {
-	const { values, disabled, change, submit } = props
+	const { values, disabled, change, submit, errors } = props
 
 	const onSubmit = evt => {
 		evt.preventDefault()
@@ -18,7 +18,8 @@ export default function Form(props) {
 		<div>
 			<h1>Pizza Form Page</h1>
 			<form id='pizza-form' onSubmit={onSubmit}>
-				{/* add some error divs! */}
+			
+			<div>{errors.name}</div>
 
 			<div className='formInputs'>
 				<label>Name:
