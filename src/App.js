@@ -1,5 +1,6 @@
 import React from "react";
 import { Route, Link, Switch } from 'react-router-dom'
+import Home from './components/Home'
 
 const App = () => {
   return (
@@ -11,6 +12,15 @@ const App = () => {
 					<Link to='/items-list'>Order</Link>
 				</div>
 			</nav>
+
+			<Switch>
+				<Route>
+					
+				</Route>
+
+				<Route path='/' component={Home} />
+
+			</Switch>
 		</div>
   );
 };
